@@ -1,0 +1,8 @@
+BeagleBone Black project where I controlled some blinds via DC motor. It could open and close blinds remotely through a website, as well as allow for the user to set a time for opening or closing it.
+
+A website hosted on a Heroku server allows a user to send commands to the BeagleBone remotely. The beaglebone uses node.js. BeagleBone sends GPIO commands to a H bridge, controlling a motor.
+HTML website: http://polar-thicket-8413.herokuapp.com/
+
+Amritpal Khalsa, CSE '15 
+297DP Spring 2014
+askhalsa@umass.edu
