@@ -1,3 +1,9 @@
+<!-- 
+Amritpal Khalsa, CSE '15 
+297DP Spring 2014 
+askhalsa@umass.edu 
+The html file for the heroku app, draws the boxes 
+-->
 <!DOCTYPE html>
 <html>
 <body>
@@ -10,17 +16,17 @@
         function ledOn(){
                 socket.emit('led', 'on');
         }
-        function ledOff(){
+        function ledOff(){//this sends a signal for closing the blinds
                 socket.emit('led', 'off');
 
         }       
-        function tData()
+        function tData()//this sends a signal for time data
         {
-           var h = document.getElementById("tSelect1").value;
-           var m = document.getElementById("tSelect2").value;
-           var ampm = document.getElementById("tSelect3").value;
-           var t = parseInt(h)*60+parseInt(m)+720*parseInt(ampm);
-           socket.emit('led', t);
+           var h = document.getElementById("tSelect1").value;//gets the hour from the dropdown
+           var m = document.getElementById("tSelect2").value;//gets the minute from the dropdown
+           var ampm = document.getElementById("tSelect3").value;//gets the a 0 or 1 for either AM or PM
+           var t = parseInt(h)*60+parseInt(m)+720*parseInt(ampm);//gives the time in minutes with range between 0 and 1439
+           socket.emit('led', t);                                //12AM is 0, 8:34 AM is 514, 12PM is 720, 11:59 is 1439, etc.
       }
 
         </script>
@@ -32,14 +38,14 @@
 <br>
 
 <h2 style="font: 30px Lucida Sans Unicode">Manually control your blinds:</h2>
-<br>
+<br> <!-- first button turns opens the blinds, second button closes, both call ledOn() or ledOff() javascript functions on click -->
         <input type="button" name="on" id="onButton" value="open" onClick="ledOn();" style="width:200px; height:100px; font: 72px Lucida Sans Unicode";>
         <input type="button" name="off" id="offButton" value="close" onClick="ledOff();" style="width:200px; height:100px; font: 72px Lucida Sans Unicode"; >
 <br>
 <br>
 <label for="timeSelect">
 <h2 style="font: 30px Lucida Sans Unicode">Select time for when you want your blinds to open:</h2>
-<br>
+<br><!-- dropdown for hours -->
 <select name="hour" id ="tSelect1" style="width:115px; height:100px; font: 72px Lucida Sans Unicode";>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -54,7 +60,7 @@
   <option value="11">11</option>
   <option value="0">12</option>
 </select>
-</label>
+</label><!-- dropdown for minutes -->
   <select name="min" id="tSelect2" style="width:115px; height:100px; font:  72px Lucida Sans Unicode";>
   <option value="0">00</option>  
   <option value="1">01</option>
@@ -118,13 +124,13 @@
   <option value="59">59</option>
   </select>
 </label>
-
+ <!-- dropdown for AM and PM -->
   <select name="AMPM" id="tSelect3" style="width:140px; height:100px; font: 72px Lucida Sans Unicode";>
   <option value="0">AM</option>
   <option value="1">PM</option>
   </select>
 </label>
-
+<!-- set button, when this is clicked, calls the javascript tData(), which transmits the data you selected in the dropdown -->
 <input type="button" name="off" id="offButton" value="set" onClick="tData();" style="width:150px; height:100px; font: 72px Lucida Sans Unicode"; >
 <br>
 
