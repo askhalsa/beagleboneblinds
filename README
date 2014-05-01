@@ -12,7 +12,6 @@ git add .
 git commit -m "init"
 git push heroku master
 	
-
 Amritpal Khalsa, CSE '15 
 297DP Spring 2014
 askhalsa@umass.edu
