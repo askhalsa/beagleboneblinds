@@ -3,6 +3,16 @@ BeagleBone Black project where I controlled some blinds via DC motor. It could o
 A website hosted on a Heroku server allows a user to send commands to the BeagleBone remotely. The beaglebone uses node.js. BeagleBone sends GPIO commands to a H bridge, controlling a motor.
 HTML website: http://polar-thicket-8413.herokuapp.com/
 
+Template and instructions that I used to start out with: http://www.ariunjargal.com/blog/beaglebone-cloud/
+Files that I altered and worked on: index.html and server.js (in mobile), server.js (in mobile2)
+
+If you make any changes to these files (in mobile): index.html, server.js, package.json
+then run these commands on your beaglebone:
+git add .
+git commit -m "init"
+git push heroku master
+	
+
 Amritpal Khalsa, CSE '15 
 297DP Spring 2014
 askhalsa@umass.edu
